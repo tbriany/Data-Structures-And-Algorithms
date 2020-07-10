@@ -46,13 +46,29 @@ c.right = e;
 //            (15)   (7)
 
 
-var maxDepth = function(root) {
+const maxDepth = function (root) {
     if (root === null) {
         return 0
     }
-    
-  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 };
 
 
 console.log(maxDepth(a))
+
+
+const maxDepth2 = (root) => {
+    let max = 0
+
+    let BFS = (node, level) => {
+        if (node === null) return
+        if (level > max) max = level
+        BFS(node.left, level + 1)
+        BFS(node.right, level + 1)
+    }
+    BFS(root, 1)
+    return max
+};
+
+console.log(maxDepth2(a))
