@@ -81,10 +81,10 @@ const solution = (root, val) => {
         return false
     }
 
-    let foundInLeft = solution(root.left, val)
-    let foundInRight = solution(root.right, val)
+    let sameLeft = solution(root.left, val)
+    let sameRight = solution(root.right, val)
 
-    return (foundInLeft && foundInRight)
+    return (sameLeft && sameRight)
 }
 
 console.log(isUnivalTree(a))
