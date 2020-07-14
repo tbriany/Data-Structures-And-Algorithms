@@ -56,10 +56,13 @@ d.right = f;
 
 
 var isSameTree = function (p, q) {
-    if (!p || !q) {
-        if (p || q) { return false }
+    if (!p && !q) {
         return true
-    }
+      }
+  
+    if (!p || !q) { 
+    return false 
+   }
 
     let leftSame = isSameTree(p.left, q.left)
     let rightSame = isSameTree(p.right, q.right)
