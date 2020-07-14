@@ -54,6 +54,21 @@ const maxDepth = function (root) {
     return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 };
 
+const maxDepth3 = function (root) {
+    if (root === null) {
+        return 0
+    }
+
+    let leftDepth = maxDepth3(root.left)
+    let rightDepth = maxDepth3(root.right)
+
+    if (leftDepth > rightDepth){
+        return leftDepth + 1
+    } else {
+        return rightDepth + 1
+    }
+};
+
 
 console.log(maxDepth(a))
 
