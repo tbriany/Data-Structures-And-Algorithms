@@ -64,4 +64,4 @@ var getDecimalValue = function(head) {
 };
 
 
-console.log(getDecimalValue(n1))s
+console.log(getDecimalValue(n1))
