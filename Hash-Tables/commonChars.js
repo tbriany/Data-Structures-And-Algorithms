@@ -36,8 +36,12 @@ var commonChars = function (A) {
 
     }
 
+    console.log(tracker)
+
 
     let first = tracker[0]
+
+    console.log(first)
 
     for (let ltr in first) {
         let nums = []
@@ -48,10 +52,16 @@ var commonChars = function (A) {
             }
         }
 
-        if (nums.length === tracker.length) {
-            let times = Math.min(nums)
+        console.log(nums)
 
-            for (j = 0; j <= times; j++) {
+        if (nums.length === tracker.length) {
+            let times = Math.min(...nums)
+
+            if (times > 1) {
+                for (let j = 0; j < times; j++) {
+                    output.push(ltr)
+                }
+            } else {
                 output.push(ltr)
             }
         }
@@ -60,3 +70,8 @@ var commonChars = function (A) {
     return output
 
 };
+
+
+const input = ["bella","label","roller"]
+
+console.log(commonChars(input))
