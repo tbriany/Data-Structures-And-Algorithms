@@ -21,3 +21,44 @@
 // Explanation: 
 // The strings that can be formed are "hello" and "world" so the answer is 5 + 5 = 10.
 
+var countCharacters = function (words, chars) {
+    let charsObj = {}
+    let goodStr = ""
+
+    for (let i = 0; i < chars.length; i++) {
+        if (!charsObj[chars[i]]) {
+            charsObj[chars[i]] = 1
+        } else {
+            charsObj[chars[i]]++
+        }
+    }
+
+
+    for (let i = 0; i < words.length; i++) {
+        let good = true
+        let charsCopy = { ...charsObj }
+
+        for (let j = 0; j < words[i].length; j++) {
+            if (!charsCopy[words[i][j]]) {
+                good = false
+                break;
+            } else {
+                charsCopy[words[i][j]]--;
+                if (charsCopy[words[i][j]] === 0) {
+                    delete charsCopy[words[i][j]]
+                }
+            }
+        }
+
+        if (good) {
+            goodStr += words[i]
+        }
+    }
+
+    return goodStr.length
+};
+
+let words = ["cat","bt","hat","tree"]
+let chars = "atach"
+
+console.log(countCharacters(words, chars))
